@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rock-Paper-Scissors Game</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <script>
+ 	function computerPlay() {
+         // create array of options for computer
+         const COMP_OPTIONS = ["rock", "paper", "scissors"];
+         //store the random index number from 0 to 2
+         let compOptionIndex = Math.floor((Math.random() * 3));
+         // return randomly selected option for computer
+         return COMP_OPTIONS[compOptionIndex];
+     }
+
+    function playRound(playerSelection, computerSelection) {
+        let result;
+        // check who wins the round
+        switch(true) {
+          case playerSelection === "rock" && computerSelection === "rock":
+            result = "It'\s a tie! Both players chose rock";
+            break;
+
+          case playerSelection === "rock" && computerSelection === "paper":
+            result = "You Lose! Paper beats Rock";
+            break;
+
+          case playerSelection === "rock" && computerSelection === "scissors":
+            result = "You Win! Rock beats Scissors";
+            break;
+
+          case playerSelection === "paper" && computerSelection === "rock":
+            result = "You Win! Paper Beats Rock";
+            break;
+
+          case playerSelection === "paper" && computerSelection === "paper":
+            result = "It'\s a tie! Both players chose paper";
+            break;
+
+          case playerSelection === "paper" && computerSelection === "scissors":
+            result = "You Lose! Scissors Beats Paper";
+            break;
+
+          case playerSelection === "scissors" && computerSelection === "rock":
+            result = "You Lose! Rock Beats Scissors";
+            break;
+
+          case playerSelection === "scissors" && computerSelection === "paper":
+            result = "You Win! Scissors beats Paper";
+            break;
+
+          case playerSelection === "scissors" && computerSelection === "scissors":
+            result = "It'\s a tie! Both players chose scissors";
+            break;
+
+          default:
+            result = "Something went horribly wrong...";
+        }
+        
+        // return result based on which switch case is true
+        return result;
+     }
+
+     // to track score
+     let computerScore = 0;
+     let playerScore = 0;
+     
+     // update score depending on if player wins or loses, or if it's a tie keep currrent score
+     function updateScore(roundResult) {
+        if (roundResult.includes("Win")) {
+            playerScore++;
+          }
+
+        else if (roundResult.includes("Lose")) {
+            computerScore++;
+          }
+
+      return `Player: ${playerScore}, Computer: ${computerScore}`;
+     }
+
+     function displayWinner() {
+       let finalResult;
+        if (computerScore > playerScore) {
+          finalResult = "You Lost! Better luck next time.";
+         }
+
+         else if (computerScore < playerScore) {
+          finalResult = "Congratulations, You Won!";
+         }
+
+         else {
+          finalResult = "It'\s a tie! Both players have same score.";
+         }
+ 
+        return console.log(`${finalResult}\nfinal score is: Player: ${playerScore}, Computer: ${computerScore}`);
+     }
+
+      function game() {
+        // play a game of 5 rounds with correct input
+        let i = 0;
+        while(i < 5) {
+          let playerSelection = prompt("rock, paper, scissors, shoot!", "");
+          if (playerSelection === null){
+            // reset scores for new game
+            playerScore = 0;
+            computerScore = 0;
+            return console.log("You cancelled the game");
+          }
+          playerSelection = playerSelection.toLocaleLowerCase();
+          // Continue until player enters correct values
+          checkPlayerSelection: while (playerSelection !== "rock" && playerSelection !== "paper"
+            && playerSelection !== "scissors") {
+            console.log("Please try again! Enter rock, paper or scissors.");
+            playerSelection = prompt("rock, paper, scissors, shoot!", "");
+            if (playerSelection === null) {
+              // reset scores for new game
+              playerScore = 0;
+              computerScore = 0;
+              return console.log("You cancelled the game");
+            }
+            playerSelection = playerSelection.toLocaleLowerCase();
+            continue checkPlayerSelection;
+          }
+
+          let computerSelection = computerPlay();
+          let roundResult = playRound(playerSelection, computerSelection);
+          console.log(roundResult);
+          console.log(updateScore(roundResult));
+          i++;
+      }
+
+      displayWinner();
+      // reset scores for new game
+      playerScore = 0;
+      computerScore = 0;
+     } 
+  </script>
+</body>
+</html>
