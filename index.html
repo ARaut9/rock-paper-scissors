@@ -100,28 +100,23 @@
       function game() {
         // play a game of 5 rounds with correct input
         let i = 0;
-        while(i < 5) {
+        checkPlayerSelection:
+        do {
           let playerSelection = prompt("rock, paper, scissors, shoot!", "");
-          if (playerSelection === null){
+          if (playerSelection === null) {
             // reset scores for new game
             playerScore = 0;
             computerScore = 0;
             return console.log("You cancelled the game");
           }
-          playerSelection = playerSelection.toLocaleLowerCase();
-          // Continue until player enters correct values
-          checkPlayerSelection: while (playerSelection !== "rock" && playerSelection !== "paper"
-            && playerSelection !== "scissors") {
-            console.log("Please try again! Enter rock, paper or scissors.");
-            playerSelection = prompt("rock, paper, scissors, shoot!", "");
-            if (playerSelection === null) {
-              // reset scores for new game
-              playerScore = 0;
-              computerScore = 0;
-              return console.log("You cancelled the game");
-            }
+          
+          else {
             playerSelection = playerSelection.toLocaleLowerCase();
-            continue checkPlayerSelection;
+            while (playerSelection !== "rock" && playerSelection !== "paper"
+            && playerSelection !== "scissors") {
+              console.log("Please try again! Enter rock, paper or scissors.");
+              continue checkPlayerSelection;
+          }
           }
 
           let computerSelection = computerPlay();
@@ -129,7 +124,8 @@
           console.log(roundResult);
           console.log(updateScore(roundResult));
           i++;
-      }
+        } while(i < 5);
+
 
       displayWinner();
       // reset scores for new game
