@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: lightblue;
+}
+
+header {
+    text-align: center;
+    background-color: #648C99;
+    color: white;
+}
+
+header h1 {
+    padding: 40px 0;
+    font-size: 50px;
+}
+
+.game h3 {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.game .btn {
+    padding: 10px 20px;
+    margin: 15px;
+    background-color: #648C99;
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.game .new-game-btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #648C99;
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+main .game {
+    text-align: center;
+}
+
+.results {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.results p {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.results .lost {
+    background-color: #ff1a1a;
+    color: #f8f8f8;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.results .won {
+    background-color: #006400;
+    color: white;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.rules h2 {
+    margin-top: 15px;
+    margin-left: 280px;
+}
+
+.rules ol {
+    padding: 25px;
+    margin-left: 270px;
+    line-height: 20px;
+}
+
+.rules ol li {
+    margin-bottom: 5px;
+}
+
+.rules ol ul {
+    margin-left: 20px;
+    list-style-type: square;
+}
+

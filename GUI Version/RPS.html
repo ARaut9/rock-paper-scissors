@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock-Paper-Scissors Game</title>
+  <link rel="stylesheet" href="RPS.css">
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <section class="game">
+            <h3>Click on any button below to play</h3>
+            <button class="btn">Rock</button>
+            <button class="btn">Paper</button>
+            <button class="btn">Scissors</button>
+            <button class="new-game-btn">New Game</button>
+        </section>
+        <section class="results"></section>
+    </main>
+
+        <section class="rules">
+            <h2>Rules:</h2>
+            <ol>
+                <li>After the player makes his choice by clicking on any button above, 
+                    the computer will also make a random choice.</li>
+                <li>The choices of both players will be compared based on the following rules:</li>
+                    <ul>
+                        <li>Rock beats Scissors</li>
+                        <li>Scissors beats Paper</li>
+                        <li>Paper beats Rock</li>
+                        <li>If both players have same choice then it's a Tie</li>
+                    </ul>
+                <li>Winner of a round will get a point.</li>
+                <li>In case of a tie nobody will get any points.</li>
+                <li>The first player to reach a score of <strong>5 points</strong> will be declared the final winner.</li>
+                <li>You can restart a new game any time by clicking on the <strong>New Game</strong> button.</li>
+            </ol>
+        </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
